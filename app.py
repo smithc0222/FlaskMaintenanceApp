@@ -32,7 +32,8 @@ def login_required(f):
 @login_required
 def home():
     units=db.session.query(Unit).all()
-    return render_template('index.html', units=units)
+    parts=db.session.query(Parts).all()
+    return render_template('index.html', units=units, parts=parts)
 
 @app.route('/create', methods = ['POST','GET'])
 @login_required
@@ -45,6 +46,18 @@ def create_unit():
             db.session.commit()
             flash('Unit was Created')
     return render_template('create.html')
+
+@app.route('/units')
+@login_required
+def units():
+    units=db.session.query(Unit).all()
+    return render_template('units.html', units=units)
+
+@app.route('/parts')
+@login_required
+def parts():
+    parts=db.session.query(Parts).all()
+    return render_template('parts.html', parts=parts)
 
 @app.route('/welcome')
 def welcome():

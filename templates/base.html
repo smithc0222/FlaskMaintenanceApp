@@ -8,6 +8,10 @@
   <body>
 
     <div class="container">
+      <!-- Messages -->
+      {% for message in get_flashed_messages() %}
+        <strong>{{ message }}</strong>
+      {% endfor %}
 
       <!-- child template -->
       {% block content %}{% endblock %}
@@ -17,10 +21,7 @@
         <p class="error"><strong>Error:</strong> {{ error }}</p>
       {% endif %}
 
-      <!-- messages -->
-      {% for message in get_flashed_messages() %}
-        <strong>{{ message }}</strong>
-      {% endfor %}
+
     </div>
 
   </body>

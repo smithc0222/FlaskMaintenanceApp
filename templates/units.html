@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Trinity EAM</h1>
+  <div class="btn-group">
+    <a href="/"><button type="button" class="btn btn-primary">Return Home</button></a>
+  </div>
+  <br>
+  <h3>Units:</h3>
+{% for unit in units %}
+  <strong>Unit:</strong> {{ unit.unit }} <br>
+  <strong>Description:</strong> {{ unit.description }} <br>
+  <br>
+{% endfor %}
+  <hr>
+  <div class="btn-group">
+    <a href="/create"><button type="button" class="btn btn-primary">Create New Unit</button></a>
+  </div>
+  <br>
+  <br>
+  <hr>
+  <p>Click <a href="/logout">here</a> to logout</p>
+
+{% endblock %}

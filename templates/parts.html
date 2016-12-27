@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Trinity EAM</h1>
+  <p>Click <a href="/logout">here</a> to logout</p>
+
+  <br>
+  <h3>Parts:</h3>
+{% for part in parts %}
+  <strong>Unit:</strong> {{ part.name }} <br>
+  <strong>Description:</strong> {{ part.description }} <br>
+  <strong>Quantity On Hand:</strong> {{part.quantity_on_hand}}
+  <br>
+  <br>
+{% endfor %}
+<div class="btn-group">
+  <a href="/"><button type="button" class="btn btn-primary">Return Home</button></a>
+</div>
+{% endblock %}
