@@ -7,9 +7,13 @@ class Unit(db.Model):
     unit=db.Column(db.String(200), nullable=True)
     description=db.Column(db.String(1000), nullable=True)
 
+    #part_id = db.Column(db.Integer, db.ForeignKey('parts.id'))
+    #parts = db.relationship('Parts', backref=db.backref('units', lazy='dynamic'))
+
     def __init__(self, unit, description):
         self.unit=unit
         self.description=description
+    #    self.parts=parts
     def __repr__(self):
         return '{}'.format(self.unit)
 
