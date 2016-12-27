@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="container">
+      <h1>Create New Unit</h1>
+      <br>
+      <form action="" method="post">
+        <input type="text" placeholder="Unit Name" name="unit" value="{{
+          request.form.unit }}">
+         <input type="text" placeholder="Description" name="description" value="{{
+          request.form.description }}">
+        <input class="btn btn-default" type="submit" value="Create">
+      </form>
+      <br>
+      <p>Click <a href="/">here</a> to view units</p>
+
+{% endblock %}

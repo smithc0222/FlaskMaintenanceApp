@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Trinity EAM</h1>
+  <p>Click <a href="/logout">here</a> to logout</p>
+
+  <br>
+  <h3>Units:</h3>
+{% for unit in units %}
+  <strong>Unit:</strong> {{ unit.unit }} <br>
+  <strong>Description:</strong> {{ unit.description }} <br>
+  <br>
+{% endfor %}
+    <p>Click <a href="/create">here</a> to create new unit</p>
+{% endblock %}
