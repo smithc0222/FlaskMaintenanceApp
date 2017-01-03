@@ -6,6 +6,10 @@
   </head>
 
   <body>
+    <!-- Messages -->
+    {% for message in get_flashed_messages() %}
+      <strong>{{ message }}</strong>
+    {% endfor %}
     <div class="container-fluid text-center">
       <div class="jumbotron" style="margin-top: 200px;">
         <h1>Welcome to Trinity EAM</h2>
@@ -13,6 +17,17 @@
             <a href="/login"><button type="button" class="btn btn-primary">Please Login</button></a>
           </div>
       </div>
+    </div>
+    <div class="navbar navbar-default navbar-fixed-bottom" role="navigation"  style="margin-bottom: 0px;" >
+    	<div class="container">
+    		<p class ="navbar-text"> &copy; Harbinger Analytics | 2017</p>
+    	</div>
+    		<!--<div class="navbar-text pull-right">
+    			<a href="https://www.facebook.com/chase.smith.7370" target="_blank"><i class="fa fa-facebook-square fa-2x"></i></a>
+    			<a href="https://twitter.com/smithc0222" target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
+    			<a href="https://www.linkedin.com/pub/chase-smith/21/682/2aa" target="_blank"><i class="fa fa-linkedin fa-2x"></i></a>
+          <a href="mailto:bcsmith3@uncg.edu"><span class="glyphicon glyphicon-envelope"></span></a>
+    		</div>-->
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="static/bootstrap.min.js"></script>

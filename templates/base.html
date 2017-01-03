@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{{ url_for('static', filename='bootstrap.min.css') }}" rel="stylesheet">
   </head>
@@ -35,10 +35,7 @@
 </nav>
 
     <div class="container"   style="margin-bottom: 60px;">
-      <!-- Messages -->
-      {% for message in get_flashed_messages() %}
-        <strong>{{ message }}</strong>
-      {% endfor %}
+      
 
       <!-- child template -->
       {% block content %}{% endblock %}

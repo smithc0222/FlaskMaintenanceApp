@@ -35,7 +35,7 @@ def home():
     parts=db.session.query(Parts).all()
     return render_template('index.html', units=units, parts=parts)
 
-@app.route('/create', methods = ['POST','GET'])
+@app.route('/create_units', methods = ['POST','GET'])
 @login_required
 def create_unit():
     if request.method == 'POST':
@@ -45,7 +45,7 @@ def create_unit():
             db.session.add(Unit(request.form['unit'], request.form['description']))
             db.session.commit()
             flash('Unit was Created')
-    return render_template('create.html')
+    return render_template('create_units.html')
 
 @app.route('/units')
 @login_required

@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
+<!-- Messages -->
+{% for message in get_flashed_messages() %}
+  <strong>{{ message }}</strong>
+{% endfor %}
 
   <h3>Units:</h3>
 {% for unit in units %}
