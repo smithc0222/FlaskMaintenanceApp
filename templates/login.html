@@ -2,12 +2,14 @@
 {% block content %}
     <div class="container">
       <h1>Please login</h1>
-      <br>
+      <hr>
       <form action="" method="post">
         <input type="text" placeholder="Username" name="username" value="{{
-          request.form.username }}">
+          request.form.username }}" style="margin-bottom: 10px">
+          <br>
          <input type="password" placeholder="Password" name="password" value="{{
-          request.form.password }}">
+          request.form.password }}" style="margin-bottom: 10px">
+          <br>
         <input class="btn btn-default" type="submit" value="Login">
       </form>
 

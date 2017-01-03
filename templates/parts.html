@@ -1,9 +1,5 @@
 {% extends "base.html" %}
 {% block content %}
-  <h1>Trinity EAM</h1>
-  <p>Click <a href="/logout">here</a> to logout</p>
-
-  <br>
   <h3>Parts:</h3>
 {% for part in parts %}
   <strong>Unit:</strong> {{ part.name }} <br>
@@ -12,7 +8,11 @@
   <br>
   <br>
 {% endfor %}
-<div class="btn-group">
-  <a href="/"><button type="button" class="btn btn-primary">Return Home</button></a>
-</div>
+  <div class="btn-group">
+    <a href="/create"><button type="button" class="btn btn-primary">Create New Unit</button></a>
+  </div>
+  <hr>
+  <br>
+  <p>Click <a href="/logout">here</a> to logout</p>
+
 {% endblock %}

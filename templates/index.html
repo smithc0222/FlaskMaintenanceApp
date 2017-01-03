@@ -1,10 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-  <h1>Trinity EAM</h1>
-  <div class="btn-group">
-    <a href="/logout"><button type="button" class="btn btn-danger">Logout</button></a>
-  </div>
-  <br>
+
   <h3>Units:</h3>
 {% for unit in units %}
   <strong>Unit:</strong> {{ unit.unit }} <br>

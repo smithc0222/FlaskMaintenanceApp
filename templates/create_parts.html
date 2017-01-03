@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="container">
+      <h1>Create New Parts</h1>
+      <br>
+      <form action="" method="post">
+        <input type="text" placeholder="Part Name" name="name" value="{{
+          request.form.name }}">
+         <input type="text" placeholder="Description" name="description" value="{{
+          request.form.description }}">
+          <input type="text" placeholder="Quantity on Hand" name="quantity_on_hand" value="{{
+           request.form.quantity_on_hand }}">
+        <input class="btn btn-default" type="submit" value="Create">
+      </form>
+      <br>
+      <div class="btn-group">
+        <a  href="/parts"><button type="button" class="btn btn-primary">View All Spare Parts</button></a>
+      </div>
+
+{% endblock %}

@@ -59,6 +59,18 @@ def parts():
     parts=db.session.query(Parts).all()
     return render_template('parts.html', parts=parts)
 
+@app.route('/create_parts', methods = ['POST','GET'])
+@login_required
+def create_parts():
+    if request.method == 'POST':
+        if db.session.query(Parts).filter(Parts.name == request.form['name']).count() > 0:
+                flash('***Unit already in EAM***')
+        else:
+            db.session.add(Parts(request.form['name'], request.form['description'], request.form['quantity_on_hand']))
+            db.session.commit()
+            flash('Part was Created')
+    return render_template('create_parts.html')
+
 @app.route('/welcome')
 def welcome():
     return render_template('welcome.html')

@@ -1,6 +1,20 @@
-{% extends "base.html" %}
-{% block content %}
-      <h1>Welcome to Flask!</h2>
-      <br>
-      <p>Click <a href="/login">here</a> to login.</p>
-{% endblock %}
+
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ url_for('static', filename='bootstrap.min.css') }}" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="container-fluid text-center">
+      <div class="jumbotron" style="margin-top: 200px;">
+        <h1>Welcome to Trinity EAM</h2>
+          <div class="btn-group">
+            <a href="/login"><button type="button" class="btn btn-primary">Please Login</button></a>
+          </div>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="static/bootstrap.min.js"></script>
+  </body>
+  </html>
