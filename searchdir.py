@@ -16,23 +16,24 @@ with open('testlist.csv', 'rb') as x:
     myfiles=csv.reader(x, delimiter=',')
     fileslist=list(myfiles)
     for each in fileslist:
+        print(each)
         for first in each:
-            first=first.rstrip(first[:-3])
+            #first=first.rstrip(first[:-3])
             doc=first+'.doc'
             docx=first+'.docx'
             pdf=first+'.pdf'
             txt=first+'.txt'
             csv=first+'.csv'
-            if first != '' and first != ' ':
-                comparelist.append(first)
-                testlist.append(first)
-                testlist.append(doc)
-                testlist.append(docx)
-                testlist.append(pdf)
-                testlist.append(txt)
-                testlist.append(csv)
-            else:
-                pass
+            #if first != '' and first != ' ':
+            comparelist.append(first)
+            testlist.append(first)
+            testlist.append(doc)
+            testlist.append(docx)
+            testlist.append(pdf)
+            testlist.append(txt)
+            testlist.append(csv)
+            #else:
+            #    pass
 
 currentdir=os.getcwd()
 mydir=[os.path.join(root, name)
@@ -58,12 +59,14 @@ for each in successlist:
 
 #find missing from both lists
 faillist=list(set(comparelist)-set(comparelist1))
-faillist.append('test')
-faillist.append('test')
+
 
 def main():
     f=open("this.txt", "w+")
-    f.write("Failed to find these PM's" + "\n"+"---------------------------"+ "\n\n")
+    f.write("++-------------------++"+ "\n"+"Sucessfully Printed" + "\n"+"++-------------------++"+ "\n\n")
+    for each in comparelist1:
+        f.write(each + "\n\n")
+    f.write("++-------------------++"+ "\n"+"Failed to Print" + "\n"+"++-------------------++"+ "\n\n")
     for each in faillist:
         f.write(each + "\n\n")
     f.close()
