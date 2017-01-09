@@ -10,9 +10,16 @@
           request.form.description }}">
           <input type="text" placeholder="Quantity on Hand" name="quantity_on_hand" value="{{
            request.form.quantity_on_hand }}">
+          <input type="text" placeholder="Associated Unit ID:" name="unit_id" value="{{
+           request.form.unit_id }}">
         <input class="btn btn-default" type="submit" value="Create">
       </form>
-      <br>
+      <!-- Messages -->
+      {% for message in get_flashed_messages() %}
+        <strong>{{ message }}</strong>
+      {% endfor %}
+      <hr>
+
       <div class="btn-group">
         <a  href="/parts"><button type="button" class="btn btn-primary">View All Spare Parts</button></a>
       </div>

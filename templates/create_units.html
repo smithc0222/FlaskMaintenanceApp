@@ -4,15 +4,18 @@
       <h1>Create New Unit</h1>
       <br>
       <form action="" method="post">
-        <input type="text" placeholder="Unit Name" name="unit" value="{{
-          request.form.unit }}">
+        <input type="text" placeholder="Unit Name" name="unit_name" value="{{
+          request.form.unit_name }}">
          <input type="text" placeholder="Description" name="description" value="{{
           request.form.description }}">
         <input class="btn btn-default" type="submit" value="Create">
       </form>
-      <br>
+      <!-- Messages -->
+      {% for message in get_flashed_messages() %}
+        <strong>{{ message }}</strong>
+      {% endfor %}
+      <hr>
       <div class="btn-group">
         <a  href="/units"><button type="button" class="btn btn-primary">View All Units</button></a>
       </div>
-
 {% endblock %}

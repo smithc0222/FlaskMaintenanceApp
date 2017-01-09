@@ -39,10 +39,10 @@ def home():
 @login_required
 def create_unit():
     if request.method == 'POST':
-        if db.session.query(Unit).filter(Unit.unit == request.form['unit']).count() > 0:
+        if db.session.query(Unit).filter(Unit.unit_name == request.form['unit_name']).count() > 0:
                 flash('***Unit already in EAM***')
         else:
-            db.session.add(Unit(request.form['unit'], request.form['description']))
+            db.session.add(Unit(request.form['unit_name'], request.form['description']))
             db.session.commit()
             flash('Unit was Created')
     return render_template('create_units.html')
@@ -66,7 +66,7 @@ def create_parts():
         if db.session.query(Parts).filter(Parts.name == request.form['name']).count() > 0:
                 flash('***Unit already in EAM***')
         else:
-            db.session.add(Parts(request.form['name'], request.form['description'], request.form['quantity_on_hand']))
+            db.session.add(Parts(request.form['name'], request.form['description'], request.form['quantity_on_hand'], request.form['unit_id']))
             db.session.commit()
             flash('Part was Created')
     return render_template('create_parts.html')

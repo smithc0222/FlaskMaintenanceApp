@@ -2,20 +2,20 @@ from app import db
 
 class Unit(db.Model):
 
-    __tablename__="units"
+    __tablename__="unit"
     id=db.Column(db.Integer, primary_key=True)
-    unit=db.Column(db.String(200), nullable=True)
+    unit_name=db.Column(db.String(200), nullable=True)
     description=db.Column(db.String(1000), nullable=True)
 
-    #part_id = db.Column(db.Integer, db.ForeignKey('parts.id'))
-    #parts = db.relationship('Parts', backref=db.backref('units', lazy='dynamic'))
 
-    def __init__(self, unit, description):
-        self.unit=unit
+
+    def __init__(self, unit_name, description):
+        self.unit_name=unit_name
         self.description=description
-    #    self.parts=parts
+
     def __repr__(self):
-        return '{}'.format(self.unit)
+        return '{}'.format(self.unit_name)
+
 
 class Parts(db.Model):
 
@@ -25,9 +25,15 @@ class Parts(db.Model):
     description=db.Column(db.String(1000), nullable=False)
     quantity_on_hand=db.Column(db.Integer, nullable=True)
 
-    def __init__(self, name, description,quantity_on_hand):
+    unit_id=db.Column(db.Integer, db.ForeignKey('unit.id'))
+    units = db.relationship('Unit', backref=db.backref('spares', lazy='dynamic'))
+
+    def __init__(self, name, description,quantity_on_hand, unit_id):
         self.name=name
         self.description=description
         self.quantity_on_hand=quantity_on_hand
+        self.unit_id=unit_id
+
+
     def __repr__(self):
         return '{}'.format(self.name)
