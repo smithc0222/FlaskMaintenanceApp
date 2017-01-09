@@ -1,26 +1,43 @@
 {% extends "base.html" %}
 {% block content %}
 
+<form class="form-inline">
+  <div class="form-group">
+    <label for="example-search-input" class="col-4 col-form-label">Search:</label>
+      <input class="form-control" type="search" placeholder="Unit or Part Name" id="search-input">
+      <button type="submit" class="btn btn-primary">Search</button>
+  </div>
+</form>
+<br>
   <h3>Units:</h3>
 {% for unit in units %}
+<div class="jumbotron">
   <strong>Unit:</strong> {{ unit.unit_name }} <br>
   <strong>Description:</strong> {{ unit.description }} <br>
-  <br>
-{% endfor %}
-  <div class="btn-group">
-    <a href="/units"><button type="button" class="btn btn-primary">View Units</button></a>
-  </div>
-  <br><br>
+  <strong>Parts Used:</strong>
+  <hr>
+  {% for each in unit.spares %}
+  <ul>
+    <li>ID: {{ each.id}}</li>
+    <li>Name: {{ each.name }}</li>
+    <li>Description: {{each.description}}</li>
+    <li>QOH: {{each.quantity_on_hand}}</li>
+  </ul>
+  <hr>
+  {% endfor %}
+</div>
+  {% endfor %}
   <hr>
   <h3>Parts:</h3>
 {% for part in parts %}
+<div class="jumbotron">
+  <strong>Part ID:</strong> {{ part.id }}<br>
   <strong>Unit:</strong> {{ part.name }} <br>
   <strong>Description:</strong> {{ part.description }} <br>
   <strong>Quantity On Hand:</strong> {{part.quantity_on_hand}}
   <br>
-  <br>
-{% endfor %}
-  <div class="btn-group">
-    <a  href="/parts"><button type="button" class="btn btn-primary">View Parts</button></a>
   </div>
+
+{% endfor %}
+
 {% endblock %}
