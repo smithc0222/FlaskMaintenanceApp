@@ -9,7 +9,7 @@
   </div>
 </form>
 <br>
-  <h3>Units:</h3>
+  <h3 class="text-center">Units</h3>
 {% for unit in units %}
 <div class="jumbotron">
   <strong>Unit:</strong> {{ unit.unit_name }} <br>
@@ -28,7 +28,7 @@
 </div>
   {% endfor %}
   <hr>
-  <h3>Parts:</h3>
+  <h3 class="text-center">Parts</h3>
 {% for part in parts %}
 <div class="jumbotron">
   <strong>Part ID:</strong> {{ part.id }}<br>
