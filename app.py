@@ -77,13 +77,15 @@ def welcome():
 
 @app.route('/login', methods = ['POST', 'GET'])
 def login():
-    error = None
+    error=''
+    user_lookup=db.session.query(User).all()
     if request.method == 'POST':
-        if request.form['username'] != 'admin' or request.form['password'] != 'admin':
-            error = 'Invalid credentials. Please try again'
+        if db.session.query(User).filter(User.username == request.form['username']).count() == 0:
+            error = 'Invalid credentials. Please try again or Register.'
         else:
             session['logged_in'] = True
             flash('You were logged in')
+            logged_username=db.session.query(User).filter(User.username==request.form['username'])
             return redirect(url_for('home'))
     return render_template('login.html', error=error)
 

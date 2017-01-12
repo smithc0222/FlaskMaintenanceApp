@@ -28,6 +28,7 @@
         <li><a href="/parts">Parts</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
+        <li><a href="/user">{{ logged_username }}</a></li>
         <li><a href="/logout">Logout</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
@@ -35,7 +36,7 @@
 </nav>
 
     <div class="container"   style="margin-bottom: 60px;">
-      
+
 
       <!-- child template -->
       {% block content %}{% endblock %}

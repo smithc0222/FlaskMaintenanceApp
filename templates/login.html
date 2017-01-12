@@ -23,12 +23,13 @@
           <input type="text" placeholder="Username" name="username" value="{{
             request.form.username }}" style="margin-bottom: 10px">
             <br>
-           <input type="password" placeholder="Password" name="password" value="{{
+          <!-- <input type="password" placeholder="Password" name="password" value="{{
             request.form.password }}" style="margin-bottom: 10px">
-            <br>
+            <br> -->
           <input class="btn btn-default" type="submit" value="Login">
         </form>
       </div>
+      <p> {{ error }}</p>
     </div>
     <div class="navbar navbar-default navbar-fixed-bottom" role="navigation"  style="margin-bottom: 0px;" >
     	<div class="container">
