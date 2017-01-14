@@ -85,7 +85,6 @@ def login():
         else:
             session['logged_in'] = True
             flash('You were logged in')
-            logged_username=db.session.query(User).filter(User.username==request.form['username'])
             return redirect(url_for('home'))
     return render_template('login.html', error=error)
 
