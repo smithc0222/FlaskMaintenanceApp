@@ -13,15 +13,13 @@
 <div class="jumbotron">
   <strong>Unit:</strong> {{ unit.unit_name }} <br>
   <strong>Description:</strong> {{ unit.description }} <br>
-  <strong>Parts Used:</strong>
-  <hr>
-  {% for each in unit.spares %}
-  <ul>
-    <li>ID: {{ each.id}}</li>
-    <li>Name: {{ each.name }}</li>
-    <li>Description: {{each.description}}</li>
-    <li>QOH: {{each.quantity_on_hand}}</li>
-  </ul>
+  <strong>Parts Used:</strong>  {% for each in unit.spares %}
+    <ul>
+      <li>ID: {{ each.id}}</li>
+      <li>Name: {{ each.name }}</li>
+      <li>Description: {{each.description}}</li>
+      <li>QOH: {{each.quantity_on_hand}}</li>
+    </ul>
   <hr>
   {% endfor %}
 </div>

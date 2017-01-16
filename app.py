@@ -32,7 +32,7 @@ def login_required(f):
 @login_required
 def home():
     units=db.session.query(Unit).all()
-    parts=db.session.query(Parts).all()
+    parts=db.session.query(Part).all()
     return render_template('index.html', units=units, parts=parts)
 
 @app.route('/create_units', methods = ['POST','GET'])
@@ -56,17 +56,17 @@ def units():
 @app.route('/parts')
 @login_required
 def parts():
-    parts=db.session.query(Parts).all()
+    parts=db.session.query(Part).all()
     return render_template('parts.html', parts=parts)
 
 @app.route('/create_parts', methods = ['POST','GET'])
 @login_required
 def create_parts():
     if request.method == 'POST':
-        if db.session.query(Parts).filter(Parts.name == request.form['name']).count() > 0:
+        if db.session.query(Part).filter(Part.name == request.form['name']).count() > 0:
                 flash('***Unit already in EAM***')
         else:
-            db.session.add(Parts(request.form['name'], request.form['description'], request.form['quantity_on_hand'], request.form['unit_id']))
+            db.session.add(Part(request.form['name'], request.form['description'], request.form['quantity_on_hand']))
             db.session.commit()
             flash('Part was Created')
     return render_template('create_parts.html')
