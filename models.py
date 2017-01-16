@@ -4,20 +4,29 @@ class Schedule(db.Model):
 
     __tablename__="schedule"
     id=db.Column(db.Integer, primary_key=True)
-    date=db.Column(db.DateTime)
-
-    schedule_line=db.relationship('schedule_line', backref=db.backref('line', lazy='dynamic'))
+    date=db.Column(db.Date)
 
     def __init__(self, date):
         self.date=date
 
     def __repr__(self):
-        return '{Schedule: }'.format(self.date)
+        return 'Schedule: { }'.format(self.date)
 
-schedule_line = db.Table('schedule_line',
-    db.Column('schedule_id', db.Integer, db.ForeignKey('schedule.id')),
-    db.Column('workorder_id', db.Integer, db.ForeignKey('workorder.id')),
-)
+class Schedule_Line(db.Model):
+
+    __tablename__="schedule_line"
+    id=db.Column(db.Integer, primary_key=True)
+    comment=db.Column(db.String(50), nullable=True)
+    schedule_relationship=db.relationship('Schedule', backref=db.backref('schedule', lazy='dynamic'))
+    schedule_id=db.Column('schedule_id', db.Integer, db.ForeignKey('schedule.id'))
+    workorder_id=db.Column('workorder_id', db.Integer, db.ForeignKey('workorder.id'))
+    def __init__(self, comment, schedule_id, workorder_id):
+        self.comment=comment
+        self.schedule_id=schedule_id
+        self.workorder_id=workorder_id
+
+    def __repr__(self):
+        return '{}'.format(self.comment)
 
 class User(db.Model):
 
