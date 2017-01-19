@@ -97,11 +97,13 @@ class Warehouse(db.Model):
     id=db.Column(db.Integer, primary_key=True)
     name=db.Column(db.String(20), nullable=False)
     bin=db.Column(db.String(10), nullable=False, unique=True)
+    quantity_on_hand=db.Column(db.Integer, nullable=False)
 
 
-    def __init__(self, name, bin):
+    def __init__(self, name, bin, quantity_on_hand):
         self.name=name
         self.bin=bin
+        self.quantity_on_hand=quantity_on_hand
 
     def __repr__(self):
         return '{}'.format(self.bin)
@@ -134,18 +136,14 @@ class Part(db.Model):
 
     __tablename__="part"
     id=db.Column(db.Integer, primary_key=True)
-    name=db.Column(db.String(200), nullable=False)
     description=db.Column(db.String(1000), nullable=False)
-    quantity_on_hand=db.Column(db.Integer, nullable=True)
 
     units=db.relationship('Unit', secondary='unit_part', backref=db.backref('spares', lazy='dynamic'))
 
     warehouses=db.relationship('Warehouse', secondary='warehouse_part', backref=db.backref('location', lazy='dynamic'))
 
-    def __init__(self, name, description,quantity_on_hand):
-        self.name=name
+    def __init__(self, description):
         self.description=description
-        self.quantity_on_hand=quantity_on_hand
 
     def __repr__(self):
         return '{}'.format(self.name)

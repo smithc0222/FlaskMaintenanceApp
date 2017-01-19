@@ -2,9 +2,8 @@
 {% block content %}
   <h3>Parts:</h3>
 {% for part in parts %}
-  <strong>Part Name:</strong> {{ part.name }} <br>
   <strong>Description:</strong> {{ part.description }} <br>
-  <strong>Quantity On Hand:</strong> {{part.quantity_on_hand}}
+  <strong>Quantity On Hand:</strong>
   <br>
   <br>
 {% endfor %}

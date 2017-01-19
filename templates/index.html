@@ -49,33 +49,37 @@
 </form>
 <br>
   <h3 class="text-center">Units</h3>
-{% for unit in units %}
-<div class="jumbotron">
-  <strong>Unit:</strong> {{ unit.unit_name }} <br>
-  <strong>Description:</strong> {{ unit.description }} <br>
-  <strong>Parts Used:</strong>
-  <hr>
-  {% for each in unit.spares %}
-  <ul>
-    <li>ID: {{ each.id}}</li>
-    <li>Name: {{ each.name }}</li>
-    <li>Description: {{each.description}}</li>
-    <li>QOH: {{each.quantity_on_hand}}</li>
-  </ul>
-  <hr>
-  {% endfor %}
+  {% for unit in units %}
+  <div class="jumbotron">
+    <div class="row">
+      <div class="col-md-4">
+    <strong>Unit:</strong> {{ unit.unit_name }} <br>
+    <strong>Description:</strong> {{ unit.description }} <br>
+  </div>
+      <div class="col-md-4">
+    <strong>Parts Used:</strong>  {% for each in unit.spares %}
+      <ul>
+        <li>Part Number: {{ each.id}}</li>
+        <li>Description: {{each.description}}</li>
+        <li>Location: </li>
+        <li>QOH:</li>
+      </ul>
+      <hr style="border-color: black;">
+    {% endfor %}
+  </div>
+  </div>
 </div>
-  {% endfor %}
+    {% endfor %}
   <hr>
   <h3 class="text-center">Parts</h3>
 {% for part in parts %}
 <div class="jumbotron">
-  <strong>Part ID:</strong> {{ part.id }}<br>
+  <strong>Part Number:</strong> {{ part.id }}<br>
   <strong>Unit:</strong> {{ part.name }} <br>
   <strong>Description:</strong> {{ part.description }} <br>
   <strong>Quantity On Hand:</strong> {{part.quantity_on_hand}}
   <br>
-  </div>
+</div>
 
 {% endfor %}
 

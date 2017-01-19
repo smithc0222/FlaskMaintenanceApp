@@ -15,10 +15,10 @@
   <strong>Description:</strong> {{ unit.description }} <br>
   <strong>Parts Used:</strong>  {% for each in unit.spares %}
     <ul>
-      <li>ID: {{ each.id}}</li>
-      <li>Name: {{ each.name }}</li>
+      <li>Part Number: {{ each.id}}</li>
       <li>Description: {{each.description}}</li>
-      <li>QOH: {{each.quantity_on_hand}}</li>
+      <li>Location: </li>
+      <li>QOH:</li>
     </ul>
   <hr>
   {% endfor %}
